@@ -44,8 +44,6 @@ h1, h2, p { margin-top: 0; }
 h1 { margin-bottom: 7px; font-size: clamp(1.8rem, 6vw, 2.55rem); line-height: 1.08; letter-spacing: -.04em; }
 h2 { margin-bottom: 0; font-size: clamp(1.2rem, 4.2vw, 1.65rem); letter-spacing: -.025em; }
 .intro { margin-bottom: 0; color: var(--text-muted); font-size: .95rem; }
-.offline-badge { flex: 0 0 auto; padding: 7px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); font-size: .67rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-
 .mode-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 16px; padding: 5px; border: 1px solid var(--border); border-radius: 17px; background: color-mix(in srgb, var(--surface) 88%, transparent); box-shadow: var(--shadow); }
 .mode-tab { display: flex; min-height: 58px; align-items: center; justify-content: center; gap: 7px; padding: 8px 5px; border: 0; border-radius: 12px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: .8rem; font-weight: 750; transition: background .18s ease, color .18s ease, transform .18s ease; }
 .mode-tab:active { transform: scale(.98); }

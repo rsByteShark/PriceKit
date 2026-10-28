@@ -1,8 +1,10 @@
 import { calculatePercentage, calculatePromotion, calculateQuantityPricing } from "./calculations.js";
+import { APP_VERSION } from "./version.js";
 
 const currency = new Intl.NumberFormat("pl-PL", { style: "currency", currency: "PLN", minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const decimal = new Intl.NumberFormat("pl-PL", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const numberPattern = /^[-+]?\d*(?:[,.]\d+)?$/;
+document.querySelector("#app-version").textContent = `v${APP_VERSION}`;
 
 function parseNumber(value) {
   const trimmed = value.trim().replace(/\s/g, "");
