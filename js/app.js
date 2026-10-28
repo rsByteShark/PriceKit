@@ -23,8 +23,13 @@ function formatDecimal(value) {
 
 function setResult(name, value) {
   const element = document.querySelector(`[data-result="${name}"]`);
-  if (element) element.textContent = value;
+  if (!element) return;
+  const empty = value === "";
+  element.textContent = empty ? "-" : value;
+  element.classList.toggle("result-empty", empty);
 }
+
+document.querySelectorAll("[data-result]").forEach((element) => setResult(element.dataset.result, ""));
 
 function valuesFrom(form) {
   return Object.fromEntries(new FormData(form).entries());
