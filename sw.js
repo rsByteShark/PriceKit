@@ -1,4 +1,4 @@
-const VERSION = "v4";
+const VERSION = "v5";
 const CACHE_NAME = `pricekit-${VERSION}`;
 const BASE_PATH = new URL("./", self.location).pathname;
 const APP_SHELL = [
