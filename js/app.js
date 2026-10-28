@@ -14,11 +14,11 @@ function parseNumber(value) {
 }
 
 function formatCurrency(value) {
-  return Number.isFinite(value) ? currency.format(value) : "—";
+  return Number.isFinite(value) ? currency.format(value) : "";
 }
 
 function formatDecimal(value) {
-  return Number.isFinite(value) ? decimal.format(value) : "—";
+  return Number.isFinite(value) ? decimal.format(value) : "";
 }
 
 function setResult(name, value) {
@@ -36,7 +36,7 @@ function showMessage(form, message) {
 }
 
 function clearResults(names) {
-  names.forEach((name) => setResult(name, "—"));
+  names.forEach((name) => setResult(name, ""));
 }
 
 function updatePromotion(form) {

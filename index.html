@@ -19,7 +19,6 @@
         <div>
           <p class="eyebrow">PRICEKIT</p>
           <h1>Kalkulator zakupowy</h1>
-          <p class="intro">Szybko sprawdź, ile naprawdę płacisz.</p>
         </div>
       </header>
 
@@ -50,24 +49,24 @@
           <div class="field-grid">
             <label class="field field-wide">
               <span>Cena regularna za sztukę</span>
-              <span class="input-wrap"><input name="regularPrice" type="text" inputmode="decimal" autocomplete="off" placeholder="12,00" aria-describedby="promotion-error"><span aria-hidden="true">zł</span></span>
+              <span class="input-wrap"><input name="regularPrice" type="text" inputmode="decimal" autocomplete="off" aria-describedby="promotion-error"><span aria-hidden="true">zł</span></span>
             </label>
             <label class="field">
               <span>Płatne sztuki (N)</span>
-              <input name="paidItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="2" aria-describedby="promotion-error">
+              <input name="paidItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-describedby="promotion-error">
             </label>
             <label class="field">
               <span>Darmowe sztuki (M)</span>
-              <input name="freeItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="1" aria-describedby="promotion-error">
+              <input name="freeItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" aria-describedby="promotion-error">
             </label>
           </div>
           <p class="form-message" id="promotion-error" role="status" aria-live="polite"></p>
         </form>
         <div class="results-grid" aria-live="polite">
-          <article class="result-card result-card-primary"><span>Efektywna cena sztuki</span><strong data-result="promotion-effective">—</strong><small>za każdą sztukę</small></article>
-          <article class="result-card"><span>Łącznie płacisz</span><strong data-result="promotion-total">—</strong><small>za <span data-result="promotion-count">—</span> szt.</small></article>
-          <article class="result-card"><span>Oszczędzasz</span><strong data-result="promotion-savings">—</strong><small>względem ceny regularnej</small></article>
-          <article class="result-card"><span>Rabat efektywny</span><strong data-result="promotion-discount">—</strong><small>całego zakupu</small></article>
+          <article class="result-card result-card-primary"><span>Efektywna cena sztuki</span><strong data-result="promotion-effective"></strong><small>za każdą sztukę</small></article>
+          <article class="result-card"><span>Łącznie płacisz</span><strong data-result="promotion-total"></strong><small>za <span data-result="promotion-count"></span> szt.</small></article>
+          <article class="result-card"><span>Oszczędzasz</span><strong data-result="promotion-savings"></strong><small>względem ceny regularnej</small></article>
+          <article class="result-card"><span>Rabat efektywny</span><strong data-result="promotion-discount"></strong><small>całego zakupu</small></article>
         </div>
       </section>
 
@@ -83,19 +82,19 @@
           <div class="field-grid">
             <label class="field field-wide">
               <span>Kwota bazowa (X)</span>
-              <span class="input-wrap"><input name="baseAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="80,00" aria-describedby="percentage-error"><span aria-hidden="true">zł</span></span>
+              <span class="input-wrap"><input name="baseAmount" type="text" inputmode="decimal" autocomplete="off" aria-describedby="percentage-error"><span aria-hidden="true">zł</span></span>
             </label>
             <label class="field field-wide">
               <span>Procent (P)</span>
-              <span class="input-wrap"><input name="percentage" type="text" inputmode="decimal" autocomplete="off" placeholder="25" aria-describedby="percentage-error"><span aria-hidden="true">%</span></span>
+              <span class="input-wrap"><input name="percentage" type="text" inputmode="decimal" autocomplete="off" aria-describedby="percentage-error"><span aria-hidden="true">%</span></span>
             </label>
           </div>
           <p class="form-message" id="percentage-error" role="status" aria-live="polite"></p>
         </form>
         <div class="results-list" aria-live="polite">
-          <article class="result-row"><div><span>Wartość procentu</span><small>tyle wynosi P% z X</small></div><strong data-result="percentage-part">—</strong></article>
-          <article class="result-row"><div><span>Po obniżce</span><small>X − P%</small></div><strong data-result="percentage-minus">—</strong></article>
-          <article class="result-row"><div><span>Po podwyżce</span><small>X + P%</small></div><strong data-result="percentage-plus">—</strong></article>
+          <article class="result-row"><div><span>Wartość procentu</span><small>tyle wynosi P% z X</small></div><strong data-result="percentage-part"></strong></article>
+          <article class="result-row"><div><span>Po obniżce</span><small>X − P%</small></div><strong data-result="percentage-minus"></strong></article>
+          <article class="result-row"><div><span>Po podwyżce</span><small>X + P%</small></div><strong data-result="percentage-plus"></strong></article>
         </div>
       </section>
 
@@ -112,11 +111,11 @@
           <div class="field-grid quantity-grid">
             <label class="field">
               <span>Cena opakowania</span>
-              <span class="input-wrap"><input name="packagePrice" type="text" inputmode="decimal" autocomplete="off" placeholder="9,00" aria-describedby="quantity-error"><span aria-hidden="true">zł</span></span>
+              <span class="input-wrap"><input name="packagePrice" type="text" inputmode="decimal" autocomplete="off" aria-describedby="quantity-error"><span aria-hidden="true">zł</span></span>
             </label>
             <label class="field">
               <span>Ilość</span>
-              <input name="packageQuantity" type="text" inputmode="decimal" autocomplete="off" placeholder="750" aria-describedby="quantity-error">
+              <input name="packageQuantity" type="text" inputmode="decimal" autocomplete="off" aria-describedby="quantity-error">
             </label>
             <label class="field">
               <span>Jednostka</span>
@@ -129,7 +128,7 @@
           <div class="field-grid quantity-grid">
             <label class="field field-wide">
               <span>Żądana ilość</span>
-              <input name="desiredQuantity" type="text" inputmode="decimal" autocomplete="off" placeholder="200" aria-describedby="quantity-error">
+              <input name="desiredQuantity" type="text" inputmode="decimal" autocomplete="off" aria-describedby="quantity-error">
             </label>
             <label class="field field-wide">
               <span>Jednostka</span>
@@ -141,12 +140,12 @@
           <p class="form-message" id="quantity-error" role="status" aria-live="polite"></p>
         </form>
         <div class="results-grid quantity-results" aria-live="polite">
-          <article class="result-card result-card-primary"><span>Cena za żądaną ilość</span><strong data-result="quantity-requested">—</strong><small><span data-result="quantity-requested-label">—</span></small></article>
-          <article class="result-card"><span>Cena za 1 <span data-result="quantity-normalized-unit">—</span></span><strong data-result="quantity-normalized">—</strong><small>cena znormalizowana</small></article>
+          <article class="result-card result-card-primary"><span>Cena za żądaną ilość</span><strong data-result="quantity-requested"></strong><small><span data-result="quantity-requested-label"></span></small></article>
+          <article class="result-card"><span>Cena za 1 <span data-result="quantity-normalized-unit"></span></span><strong data-result="quantity-normalized"></strong><small>cena znormalizowana</small></article>
         </div>
       </section>
 
-      <footer class="app-footer"><span>PLN · <span id="app-version"></span></span></footer>
+      <footer class="app-footer"><span id="app-version"></span></footer>
     </main>
     <script type="module" src="./js/app.js"></script>
   </body>
