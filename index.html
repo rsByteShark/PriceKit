@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0c6b58">
+    <meta name="description" content="Prosty kalkulator zakupowy: promocje, procenty i ceny za jednostkę.">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <title>PriceKit — kalkulator zakupowy</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">PRICEKIT</p>
+          <h1>Kalkulator zakupowy</h1>
+          <p class="intro">Szybko sprawdź, ile naprawdę płacisz.</p>
+        </div>
+        <span class="offline-badge" aria-label="Aplikacja gotowa do pracy offline">offline ready</span>
+      </header>
+
+      <nav class="mode-tabs" aria-label="Tryb kalkulatora" role="tablist">
+        <button class="mode-tab is-active" id="tab-promotion" type="button" role="tab" aria-selected="true" aria-controls="panel-promotion" data-mode="promotion">
+          <span class="tab-icon" aria-hidden="true">N+M</span>
+          <span>Promocja</span>
+        </button>
+        <button class="mode-tab" id="tab-percentage" type="button" role="tab" aria-selected="false" aria-controls="panel-percentage" data-mode="percentage" tabindex="-1">
+          <span class="tab-icon" aria-hidden="true">%</span>
+          <span>Procent</span>
+        </button>
+        <button class="mode-tab" id="tab-quantity" type="button" role="tab" aria-selected="false" aria-controls="panel-quantity" data-mode="quantity" tabindex="-1">
+          <span class="tab-icon" aria-hidden="true">↔</span>
+          <span>Jednostki</span>
+        </button>
+      </nav>
+
+      <section class="calculator-panel" id="panel-promotion" role="tabpanel" aria-labelledby="tab-promotion" data-panel="promotion">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">PROMOCJA N + M</p>
+            <h2>Weź więcej, zapłać mniej</h2>
+          </div>
+          <span class="formula-chip">2 + 1 = ⅓ taniej</span>
+        </div>
+        <form class="calculator-form" data-calculator="promotion" novalidate>
+          <div class="field-grid">
+            <label class="field field-wide">
+              <span>Cena regularna za sztukę</span>
+              <span class="input-wrap"><input name="regularPrice" type="text" inputmode="decimal" autocomplete="off" placeholder="12,00" aria-describedby="promotion-error"><span aria-hidden="true">zł</span></span>
+            </label>
+            <label class="field">
+              <span>Płatne sztuki (N)</span>
+              <input name="paidItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="2" aria-describedby="promotion-error">
+            </label>
+            <label class="field">
+              <span>Darmowe sztuki (M)</span>
+              <input name="freeItems" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="1" aria-describedby="promotion-error">
+            </label>
+          </div>
+          <p class="form-message" id="promotion-error" role="status" aria-live="polite"></p>
+        </form>
+        <div class="results-grid" aria-live="polite">
+          <article class="result-card result-card-primary"><span>Efektywna cena sztuki</span><strong data-result="promotion-effective">—</strong><small>za każdą sztukę</small></article>
+          <article class="result-card"><span>Łącznie płacisz</span><strong data-result="promotion-total">—</strong><small>za <span data-result="promotion-count">—</span> szt.</small></article>
+          <article class="result-card"><span>Oszczędzasz</span><strong data-result="promotion-savings">—</strong><small>względem ceny regularnej</small></article>
+          <article class="result-card"><span>Rabat efektywny</span><strong data-result="promotion-discount">—</strong><small>całego zakupu</small></article>
+        </div>
+      </section>
+
+      <section class="calculator-panel is-hidden" id="panel-percentage" role="tabpanel" aria-labelledby="tab-percentage" data-panel="percentage" hidden>
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">PROCENT</p>
+            <h2>Policz zmianę ceny</h2>
+          </div>
+          <span class="formula-chip">25% z 80 zł = 20 zł</span>
+        </div>
+        <form class="calculator-form" data-calculator="percentage" novalidate>
+          <div class="field-grid">
+            <label class="field field-wide">
+              <span>Kwota bazowa (X)</span>
+              <span class="input-wrap"><input name="baseAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="80,00" aria-describedby="percentage-error"><span aria-hidden="true">zł</span></span>
+            </label>
+            <label class="field field-wide">
+              <span>Procent (P)</span>
+              <span class="input-wrap"><input name="percentage" type="text" inputmode="decimal" autocomplete="off" placeholder="25" aria-describedby="percentage-error"><span aria-hidden="true">%</span></span>
+            </label>
+          </div>
+          <p class="form-message" id="percentage-error" role="status" aria-live="polite"></p>
+        </form>
+        <div class="results-list" aria-live="polite">
+          <article class="result-row"><div><span>Wartość procentu</span><small>tyle wynosi P% z X</small></div><strong data-result="percentage-part">—</strong></article>
+          <article class="result-row"><div><span>Po obniżce</span><small>X − P%</small></div><strong data-result="percentage-minus">—</strong></article>
+          <article class="result-row"><div><span>Po podwyżce</span><small>X + P%</small></div><strong data-result="percentage-plus">—</strong></article>
+        </div>
+      </section>
+
+      <section class="calculator-panel is-hidden" id="panel-quantity" role="tabpanel" aria-labelledby="tab-quantity" data-panel="quantity" hidden>
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">CENA ZA JEDNOSTKĘ</p>
+            <h2>Porównaj różne opakowania</h2>
+          </div>
+          <span class="formula-chip">750 ml → 1 l</span>
+        </div>
+        <form class="calculator-form" data-calculator="quantity" novalidate>
+          <div class="subsection-label">Opakowanie</div>
+          <div class="field-grid quantity-grid">
+            <label class="field">
+              <span>Cena opakowania</span>
+              <span class="input-wrap"><input name="packagePrice" type="text" inputmode="decimal" autocomplete="off" placeholder="9,00" aria-describedby="quantity-error"><span aria-hidden="true">zł</span></span>
+            </label>
+            <label class="field">
+              <span>Ilość</span>
+              <input name="packageQuantity" type="text" inputmode="decimal" autocomplete="off" placeholder="750" aria-describedby="quantity-error">
+            </label>
+            <label class="field">
+              <span>Jednostka</span>
+              <select name="packageUnit" aria-describedby="quantity-error">
+                <option value="ml">ml</option><option value="l">l</option><option value="g">g</option><option value="kg">kg</option>
+              </select>
+            </label>
+          </div>
+          <div class="subsection-label">Ile potrzebujesz?</div>
+          <div class="field-grid quantity-grid">
+            <label class="field field-wide">
+              <span>Żądana ilość</span>
+              <input name="desiredQuantity" type="text" inputmode="decimal" autocomplete="off" placeholder="200" aria-describedby="quantity-error">
+            </label>
+            <label class="field field-wide">
+              <span>Jednostka</span>
+              <select name="desiredUnit" aria-describedby="quantity-error">
+                <option value="ml">ml</option><option value="l">l</option><option value="g">g</option><option value="kg">kg</option>
+              </select>
+            </label>
+          </div>
+          <p class="form-message" id="quantity-error" role="status" aria-live="polite"></p>
+        </form>
+        <div class="results-grid quantity-results" aria-live="polite">
+          <article class="result-card result-card-primary"><span>Cena za żądaną ilość</span><strong data-result="quantity-requested">—</strong><small><span data-result="quantity-requested-label">—</span></small></article>
+          <article class="result-card"><span>Cena za 1 <span data-result="quantity-normalized-unit">—</span></span><strong data-result="quantity-normalized">—</strong><small>cena znormalizowana</small></article>
+        </div>
+      </section>
+
+      <footer class="app-footer"><span>PriceKit działa lokalnie na Twoim urządzeniu.</span><span>PLN · offline</span></footer>
+    </main>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
