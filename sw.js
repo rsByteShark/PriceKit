@@ -1,4 +1,4 @@
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE_NAME = `pricekit-${VERSION}`;
 const BASE_PATH = new URL("./", self.location).pathname;
 const APP_SHELL = [
@@ -9,6 +9,8 @@ const APP_SHELL = [
   "./js/calculations.js",
   "./manifest.webmanifest",
   "./icons/icon.svg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
   "./icons/icon-192.svg",
   "./icons/icon-512.svg"
 ].map((path) => new URL(path, self.location).href);
@@ -32,6 +34,9 @@ self.addEventListener("fetch", (event) => {
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
       }
       return response;
-    }).catch(() => caches.match(new URL("./index.html", self.location.href))))
+    }).catch((error) => {
+      if (event.request.mode === "navigate") return caches.match(new URL("./index.html", self.location.href));
+      throw error;
+    }))
   );
 });

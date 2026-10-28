@@ -22,10 +22,12 @@ Pliki używają ścieżek względnych, więc działają także pod ścieżką re
 
 ## Instalacja na Androidzie
 
-1. Otwórz opublikowany adres w Chrome na Androidzie.
+1. Otwórz opublikowany adres w przeglądarce na Androidzie.
 2. Poczekaj na pierwsze załadowanie aplikacji, aby zasoby zapisały się do cache.
-3. Otwórz menu Chrome i wybierz **Dodaj do ekranu głównego** lub **Zainstaluj aplikację**.
-4. Potwierdź instalację. Po pierwszej wizycie kalkulator działa również bez połączenia z internetem.
+3. Otwórz menu przeglądarki i wybierz **Dodaj do ekranu głównego** lub odpowiednią opcję instalacji.
+4. Po wdrożeniu aktualizacji usuń poprzednią ikonę PriceKit z ekranu głównego, otwórz ponownie opublikowaną stronę i dodaj skrót/aplikację jeszcze raz, aby odświeżyć zapisane dane i ikonę.
+
+Firefox dla Androida może niezależnie od kodu aplikacji wyświetlić błędną ikonę lub nie uruchomić skrótu. Ponowna instalacja i aktualizacja zasobów mogą pomóc, ale nie gwarantują naprawy błędu specyficznego dla Firefoksa.
 
 ## Testy logiki
 
